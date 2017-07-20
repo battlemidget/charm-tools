@@ -21,7 +21,7 @@ parts:
     plugin: godeps
     go-importpath: github.com/juju/terms-client
   charm-tools:
-    source: . 
+    source: .
     plugin: python
     python-version: python2
     requirements: requirements.txt
@@ -33,8 +33,14 @@ parts:
       - libapt-pkg5.0
       - git-core
       - python-apt
+    after: [python]
   charm-version:
     source: snap/workarounds/
     plugin: dump
     stage:
       - charmstore-client-version
+  python:
+    source: https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz
+    plugin: autotools
+    configflags: [--prefix=/usr]
+    build-packages: [libssl-dev]
