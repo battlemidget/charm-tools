@@ -19,19 +19,21 @@ parts:
     source-type: git
     plugin: godeps
     go-importpath: github.com/juju/charmstore-client
+    build-packages:
+      - bzr
   charm-terms:
     source: https://github.com/juju/terms-client.git
     source-tag: v1.0.1
     source-type: git
     plugin: godeps
     go-importpath: github.com/juju/terms-client
+    build-packages:
+      - bzr
   charm-tools:
     source: .
     plugin: python
     python-version: python2
     requirements: requirements.txt
-    build-packages:
-      - bzr
     stage-packages:
       - git-core
       - python3
